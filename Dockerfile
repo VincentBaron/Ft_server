@@ -6,7 +6,7 @@
 #    By: vbaron <vbaron@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/03 00:12:04 by vbaron            #+#    #+#              #
-#    Updated: 2020/09/14 16:38:23 by vbaron           ###   ########.fr        #
+#    Updated: 2020/09/25 10:35:04 by vbaron           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,8 +51,13 @@ RUN cp /usr/bin/wp-config.php /var/www/html/wordpress
 RUN rm /var/www/html/wordpress/wp-config-sample.php
 RUN rm -rf latest.tar.gz
 
+#SSL
+RUN mkdir /etc/nginx/certif
+RUN openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -batch -nodes
+RUN mv *.pem /etc/nginx/certif/
 
-EXPOSE 80
+
+EXPOSE 80 443
 
 CMD ["script.sh"]
 
