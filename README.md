@@ -1,7 +1,7 @@
 # Ft_server
 ## Project overview
 
-This project aimed at using Docker to deploy a Nginx server running on Debian with PhpMyAdmin Database supporting WordPress.
+This project aimed at using Docker to deploy a Nginx server running on Debian with a PhpMyAdmin Database supporting WordPress.
 
 ## What I learned
 
